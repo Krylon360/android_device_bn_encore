@@ -142,11 +142,8 @@ on boot
     chmod 0777 /dev/ion
         
     # Permissions for Overlay
-    chmod 0777 /dev/video1
-    chmod 0777 /dev/video2
-    chmod 0777 /dev/video3
-    chmod 0777 /dev/omap-resizer
-    chmod 0777 /dev/omap-previewer
+    chmod 0777 /dev/video6
+    chmod 0777 /dev/video10
 
     # change permissions for overlay managers and display devices
     chmod 0777 /sys/devices/platform/omapdss/manager0/name
@@ -169,6 +166,9 @@ on boot
     # SGX driver
     chmod 0666 /dev/pvrsrvkm
 
+    # Ducatti driver
+    chmod 0666 /system/etc/firmware/ducati-m3.bin
+
     #Set read_ahead buffers
     write /sys/block/mmcblk0/bdi/read_ahead_kb 1024
     write /sys/block/mmcblk1/bdi/read_ahead_kb 1024
@@ -182,21 +182,13 @@ on boot
 
     # change permissions for overlay managers and display devices
     chown system system /sys/devices/platform/omapdss/display0/enabled
-    chown system system /sys/devices/platform/omapdss/display1/enabled
-    chown system system /sys/devices/platform/omapdss/display2/enabled
-    chown system system /sys/devices/platform/omapdss/display3/enabled
     chown system system /sys/devices/platform/omapdss/display0/name
-    chown system system /sys/devices/platform/omapdss/display1/name
-    chown system system /sys/devices/platform/omapdss/display2/name
-    chown system system /sys/devices/platform/omapdss/display3/name
     chown system system /sys/devices/platform/omapdss/overlay0/manager
     chown system system /sys/devices/platform/omapdss/overlay1/manager
     chown system system /sys/devices/platform/omapdss/overlay2/manager
-    chown system system /sys/devices/platform/omapdss/overlay3/manager
     chown system system /sys/devices/platform/omapdss/overlay0/zorder
     chown system system /sys/devices/platform/omapdss/overlay1/zorder
     chown system system /sys/devices/platform/omapdss/overlay2/zorder
-    chown system system /sys/devices/platform/omapdss/overlay3/zorder
     
     # change permissions for manager tranparency parameters
     chown system system /sys/devices/platform/omapdss/manager0/name
@@ -208,14 +200,9 @@ on boot
     chown system system /sys/devices/platform/omapdss/overlay0/enabled
     chown system system /sys/devices/platform/omapdss/overlay1/enabled
     chown system system /sys/devices/platform/omapdss/overlay2/enabled
-    chown system system /sys/devices/platform/omapdss/overlay3/enabled
     
     # change permissions for display timings to get the resolutions
     chown system system /sys/devices/platform/omapdss/display0/timings
-    chown system system /sys/devices/platform/omapdss/display1/timings
-    chown system system /sys/devices/platform/omapdss/display2/timings
-    chown system system /sys/devices/platform/omapdss/display3/timings
-    chown system system /sys/devices/platform/omapdss/display2/code
 
     # change permissions for mtd device
     chmod 0660 /dev/mtd/mtd0
@@ -359,4 +346,4 @@ on property:service.adb.root=1
     write /sys/class/android_usb/android0/enable 1
     
 on property:sys.boot_completed=1
-    log "== init.acclaim.rc: on property:sys.boot_completed=1 -----------------------"
+    log "== init.encore.rc: on property:sys.boot_completed=1 -----------------------"
