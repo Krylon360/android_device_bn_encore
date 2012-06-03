@@ -28,10 +28,6 @@ PRODUCT_COPY_FILES += \
     device/bn/encore/init.encore.usb.rc:root/init.encore.usb.rc \
     device/bn/encore/ueventd.encore.rc:root/ueventd.encore.rc
 
-# Wifi
-PRODUCT_COPY_FILES += \
-    device/bn/encore/firmware/ducati-m3.bin:/system/vendor/firmware/ducati-m3.bin
-
 
 # key mapping and touchscreen files
 PRODUCT_COPY_FILES += \
